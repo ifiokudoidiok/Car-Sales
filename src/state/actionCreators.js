@@ -6,3 +6,10 @@ export function addFeature(data) {
 
     }
 };
+
+export function removeFeature(data) {
+    return {
+        type:types.REMOVE_FEATURE,
+        payload: data
+    }
+}
