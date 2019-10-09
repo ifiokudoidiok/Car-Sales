@@ -17,19 +17,18 @@ const store = [
 
 export function carReducer(state = car, action) {
   switch (action.type) {
-      case types.ADD_FEATURE:
-          return {
-              ...state,
-               features: [...state.features, action.payload],
-              //  price: state.car.price + action.payload.price,
-              
-          }
-        case types.REMOVE_FEATURE:
-            return {
-              ...state,
-              features: state.features.filter(item => item.id !== action.payload.id),
-                
-            }
+    case types.ADD_FEATURE:
+      return {
+        ...state,
+        features: [...state.features, action.payload],
+        price: state.price + action.payload.price
+      };
+    case types.REMOVE_FEATURE:
+      return {
+        ...state,
+        features: state.features.filter(item => item.id !== action.payload.id),
+        price: state.price - action.payload.price
+      };
     default:
       return state;
   }
@@ -41,9 +40,9 @@ export function additionalPriceReducer(state = additionalPrice, action) {
   }
 }
 
-export function storeReducer(state =store, action) {
-    switch (action.type) {
-      default:
-        return state;
-    }
+export function storeReducer(state = store, action) {
+  switch (action.type) {
+    default:
+      return state;
   }
+}
